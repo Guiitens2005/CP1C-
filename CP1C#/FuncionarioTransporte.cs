@@ -1,22 +1,25 @@
-﻿namespace CP1C
+﻿using System;
+
+namespace CP1C
 {
-class Funcionario
-{
-    private string nome;
-
-    public string Nome
+ 
+    public abstract class FuncionarioTransporte
     {
-        get { return Nome; }
-        set { nome = value; }
+        
+        public string Nome { get; protected set; }
+        public string Registro { get; protected set; }
+
+       
+        public FuncionarioTransporte(string nome, string registro)
+        {
+            Nome = nome;
+            Registro = registro;
+        }
+
+        
+        public virtual void MostrarDetalhes()
+        {
+            Console.WriteLine($"Nome: {Nome} | Registro: {Registro}");
+        }
     }
-
-
-        public Funcionario(string nome) => Nome = nome;
-
-
-        public virtual void ExibirInformacoes()
-    {
-        Console.WriteLine($"Nome: {Nome}");
-    }
-}
 }

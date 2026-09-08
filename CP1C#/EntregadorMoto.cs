@@ -1,12 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CP1C_
+namespace CP1C
 {
-    internal class EntregadorMoto
+   
+    public class EntregadorMoto : FuncionarioTransporte
     {
+        
+        public string Regiao { get; private set; }
+        public string PlacaMoto { get; private set; }
+
+        
+        public EntregadorMoto(string nome, string registro, string regiao, string placaMoto)
+            : base(nome, registro)
+        {
+            Regiao = regiao;
+            PlacaMoto = placaMoto;
+        }
+
+        
+        public override void MostrarDetalhes()
+        {
+            
+
+            Console.WriteLine($"[ENTREGADOR]: {Nome} | Registro: {Registro} | Região: {Regiao} | Placa: {PlacaMoto}");
+        }
     }
 }

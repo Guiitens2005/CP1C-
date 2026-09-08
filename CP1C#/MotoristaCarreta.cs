@@ -1,13 +1,26 @@
-﻿namespace CP1C
-{
+﻿using System;
 
-    class Motorista : Funcionario
+namespace CP1C
+{
+   
+    public class MotoristaCarreta : FuncionarioTransporte
     {
-        public string TipoVeiculo { get; set; }
-        public Motorista(string nome, string tipoVeiculo) : base(nome) => TipoVeiculo = tipoVeiculo;
-        public override void ExibirInformacoes()
+       
+        public string CategoriaCNH { get; private set; }
+        public string TipoCarga { get; private set; }
+
+        
+        public MotoristaCarreta(string nome, string registro, string categoriaCnh, string tipoCarga)
+            : base(nome, registro)
         {
-            Console.WriteLine($"[MOTORISTA]: {Nome}, Tipo de Veículo: {TipoVeiculo}");
+            CategoriaCNH = categoriaCnh;
+            TipoCarga = tipoCarga;
+        }
+
+        
+        public override void MostrarDetalhes()
+        {
+            Console.WriteLine($"[MOTORISTA DE CARRETA]: {Nome} | Registro: {Registro} | CNH: {CategoriaCNH} | Carga: {TipoCarga}");
         }
     }
 }
